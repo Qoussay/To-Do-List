@@ -9,10 +9,17 @@ app.use(express.static('Public'));
 app.use(express.urlencoded());
 
 // Set ejs as the main view engine 
-app.use('view engine', 'ejs');
+app.set('view engine', 'ejs');
 
 app.get('/' , (req,res) => {
-    res.sendFile(__dirname + '/index.html');
+    var today = new Date();
+    var currentDay = today.getDay();
+
+    if (currentDay == 6 || currentDay == 7 ) {
+        res.render('list', {weekday: 'WeekEnd'});
+    } else {
+        res.render('list', {weekday: 'WeekDay'});
+    }
 });
 
 // Initialize the local server 
