@@ -12,10 +12,18 @@
     <h1> <%= day %></h1>
 
     <ul>
-        <li>Buy food</li>
-        <li>Cook food</li>
-        <li>Eat food</li>
+        <% for(let i=0; i<new_list_item_array.length; i++) {%>
+        <li><%= new_list_item_array[i] %> </li>
+        <% } %>
     </ul>
+
+    <div>
+        <form action="/" method="post">
+            <label for="new_reminder">Add new reminder:</label><br>
+            <input type="text" name="new_reminder" id="new_reminder">
+            <button type="submit" name="button">Add</button>
+        </form>
+    </div>
 </body>
 
 </html>
