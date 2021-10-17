@@ -10,19 +10,22 @@
 </head>
 
 <body>
-    <h1> <%= day %></h1>
 
-    <ul>
+    <div class="box" id="heading">
+        <h1> <%= day %></h1>
+    </div>
+
+    <div class="box">
         <% for(let i=0; i<new_list_item_array.length; i++) {%>
-        <li><%= new_list_item_array[i] %> </li>
+        <div class="item">
+            <input type="checkbox">
+            <p><%= new_list_item_array[i] %> </p>
+        </div>
         <% } %>
-    </ul>
 
-    <div>
-        <form action="/" method="post">
-            <label for="new_reminder">Add new reminder:</label><br>
-            <input type="text" name="new_reminder" id="new_reminder">
-            <button type="submit" name="button">Add</button>
+        <form class="item" action="/" method="post">
+            <input type="text" name="new_reminder" placeholder="New Item" autocomplete="off">
+            <button type="submit" name="button">+</button>
         </form>
     </div>
 </body>
