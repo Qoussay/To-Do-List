@@ -16,10 +16,11 @@ app.get('/' , (req,res) => {
     var currentDay = today.getDay();
 
     if (currentDay == 6 || currentDay == 7 ) {
-        res.render('list', {weekday: 'WeekEnd'});
+        var day = 'Weekend';
     } else {
-        res.render('list', {weekday: 'WeekDay'});
+        var day = 'Weekday';
     }
+    res.render('list', {day: day});
 });
 
 // Initialize the local server 
