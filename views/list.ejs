@@ -1,33 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include('header') -%>
+<div class="box" id="heading">
+    <h1> <%= day %></h1>
+</div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To Do List</title>
-    <link rel="stylesheet" href="./css/style.css">
-</head>
-
-<body>
-
-    <div class="box" id="heading">
-        <h1> <%= day %></h1>
+<div class="box">
+    <% for(let i=0; i<new_list_item_array.length; i++) {%>
+    <div class="item">
+        <input type="checkbox">
+        <p><%= new_list_item_array[i] %> </p>
     </div>
+    <% } %>
 
-    <div class="box">
-        <% for(let i=0; i<new_list_item_array.length; i++) {%>
-        <div class="item">
-            <input type="checkbox">
-            <p><%= new_list_item_array[i] %> </p>
-        </div>
-        <% } %>
-
-        <form class="item" action="/" method="post">
-            <input type="text" name="new_reminder" placeholder="New Item" autocomplete="off">
-            <button type="submit" name="button">+</button>
-        </form>
-    </div>
-</body>
-
-</html>
+    <form class="item" action="/" method="post">
+        <input type="text" name="new_reminder" placeholder="New Item" autocomplete="off">
+        <button type="submit" name="button">+</button>
+    </form>
+</div>
+<%- include('footer') -%>
